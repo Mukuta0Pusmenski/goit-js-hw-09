@@ -39,18 +39,30 @@ const images = [
   },
 ];
 
+const fragment = document.createDocumentFragment();
+
 images.forEach(image => {
   const li = document.createElement('li');
+  const a = document.createElement('a');
   const img = document.createElement('img');
+  
+  a.href = image.src;
+  a.classList.add('lightbox');
   img.src = image.src;
   img.alt = image.alt;
-  li.append(img);
-  gallery.append(li);
+  
+  a.append(img);
+  li.append(a);
+  fragment.append(li);
 });
 
-new SimpleLightbox('.gallery a', {
+gallery.append(fragment);
+
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
   overlay: true,
-  captions: true,
   nav: true,
   close: true,
+  swipeClose: false,
 });
