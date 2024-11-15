@@ -9,13 +9,13 @@ body {
     background-color: #f0f0f0;
 }
 
+/* Стилі для галереї */
 .gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     max-width: 800px;
     list-style-type: none;
-    /* Видаляємо маркери списку */
     padding: 0;
 }
 
@@ -34,7 +34,6 @@ body {
 
 .gallery img:hover {
     transform: scale(1.05);
-    /* Зменшуємо масштабування */
 }
 
 .fullscreen {
@@ -49,11 +48,86 @@ body {
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 1000;
     animation: fadeIn 0.5s ease;
-    /* Додаємо анімацію */
 }
 
 .fullscreen img {
     max-width: 90%;
     max-height: 90%;
     transition: transform 0.3s ease;
+}
+
+/* Анімація */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Стилі для форми */
+.feedback-form {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #808080;
+    /* Стандартний колір */
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    border-color: #000000;
+    color: #000000;
+    /* Колір при фокусі */
+}
+
+.feedback-form input:active,
+.feedback-form textarea:active {
+    color: #808080;
+    /* Колір при активному стані */
+}
+
+.feedback-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4E75FF;
+    /* Колір у спокійному стані */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.feedback-form button:hover {
+    background-color: #6C8CFF;
+    /* Колір при ховері */
+}
+
+.feedback-form button:active {
+    background-color: #4E75FF;
+    /* Колір при активному стані */
 }
