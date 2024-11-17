@@ -17,6 +17,7 @@ export default defineConfig(({ command }) => {
       sourcemap: true,
       rollupOptions: {
         input: inputFiles.length > 0 ? inputFiles : './src/public/index.html',
+        external: ['js/main.js', 'js/1-gallery.js'],
         output: {
           manualChunks(id) {
             if (id.includes('node_modules')) {
