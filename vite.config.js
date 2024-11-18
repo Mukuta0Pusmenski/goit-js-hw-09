@@ -4,7 +4,7 @@ import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
 import { sync as globSync } from 'glob';
 
-const inputFiles = globSync('./src/public/*.html');
+const inputFiles = globSync('./src/*.html');
 console.log('Input files:', inputFiles);
 
 export default defineConfig(({ command }) => {
@@ -16,7 +16,7 @@ export default defineConfig(({ command }) => {
     build: {
       sourcemap: true,
       rollupOptions: {
-        input: inputFiles.length > 0 ? inputFiles : './src/public/index.html',
+        input: inputFiles.length > 0 ? inputFiles : './src/index.html',
         external: ['js/main.js', 'js/1-gallery.js'],
         output: {
           manualChunks(id) {
@@ -38,7 +38,7 @@ export default defineConfig(({ command }) => {
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/public/**/**.html']),
+      FullReload(['./src/**/**.html']),
       SortCss({
         sort: 'mobile-first',
       }),
